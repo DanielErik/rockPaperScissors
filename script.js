@@ -20,22 +20,18 @@ function getComputerChoice(){
     }
 }
 
-function getHumanChoice(){
-    console.log("Rock, Paper or Scissors?");
-    let choice = prompt("Choose your weapon: ");
-    choice = choice.toLowerCase();
-
-    return choice;
-}
-
-function playRound(){
-    const humanChoice = getHumanChoice();
+function playRound(humanChoiceButton){
+    const humanChoice = humanChoiceButton;
     const computerChoice = getComputerChoice();
+    document.getElementById("comWeapon").innerText = String(computerChoice).charAt(0).toUpperCase() + 
+        String(computerChoice).slice(1);
+    document.getElementById("userWeapon").innerText = String(humanChoice).charAt(0).toUpperCase() + 
+        String(humanChoice).slice(1);
     
     const winnerTable = {
         "rock-rock": "Draw!",
         "rock-paper": "You loose! Paper beats Rock",
-        "rock-scissors": "You win! Stone beats Scissors",
+        "rock-scissors": "You win! Rock beats Scissors",
         "paper-rock": "You win! Paper beats Rock",
         "paper-paper": "Draw!",
         "paper-scissors": "You loose! Scissors beat Paper",
@@ -60,19 +56,24 @@ function playRound(){
         console.log("Wrong input!");
     }
 
-    console.log(humanScore);
-    console.log(computerScore);
-}
-
-function fullGame(){
-    while (humanScore != 5 && computerScore != 5){
-        playRound();
-    }
+    document.getElementById("winLooseMessage").innerText = winnerTable[winnerKey];
+    document.getElementById("userPoints").innerText = "Points: " + humanScore;
+    document.getElementById("comPoints").innerText = "Points: " + computerScore;
 
     if(humanScore == 5){
-        console.log("You won the Match!");
+        alert("You won this Match");
+        document.getElementById("winLooseMessage").innerText = "You won this Match!";
+        humanScore = 0;
+        computerScore = 0;
     }
-    else{
-        console.log("You lost this Match!");
+    if(computerScore == 5){
+        alert("You lost this Match");
+        document.getElementById("winLooseMessage").innerText = "You lost this Match!";
+        humanScore = 0;
+        computerScore = 0;
     }
 }
+
+
+    
+ 

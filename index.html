@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta charset="UTF-8" />
     <title>RPS Game</title>
-    <link rel="stylesheet" href="./style.css">
-    
-</head>
-<body>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
     <script src="./script.js"></script>
     <h1>Rock Paper Scissors Game</h1>
-    
-</body>
+
+    <!--Player and Computer Scores -->
+    <div class="userContainer">
+      <div class="player">
+        <h3>Player</h3>
+        <a id="userWeapon">Rock</a>
+        <a id="userPoints">Points: </a>
+      </div>
+      <a id="winLooseMessage">You Win!</a>
+      <div class="computer">
+        <h3>Computer</h3>
+        <a id="comWeapon">Scissors</a>
+        <a id="comPoints">Points: </a>
+      </div>
+    </div>
+
+    <div class="buttonContainer">
+      <button onclick="playRound('rock')">Rock</button>
+      <button onclick="playRound('paper')">Paper</button>
+      <button onclick="playRound('scissors')">Scissors</button>
+    </div>
+  </body>
 </html>
